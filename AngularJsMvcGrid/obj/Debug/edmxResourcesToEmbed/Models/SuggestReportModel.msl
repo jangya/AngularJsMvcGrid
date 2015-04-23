@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IDBOLiveModelStoreContainer" CdmEntityContainer="IDBOLiveEntities">
+    <EntitySetMapping Name="GenSuggestReports">
+      <EntityTypeMapping TypeName="IDBOLiveModel.GenSuggestReport">
+        <MappingFragment StoreEntitySet="GenSuggestReport">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RecordType" ColumnName="RecordType" />
+          <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+          <ScalarProperty Name="ReviewedBy" ColumnName="ReviewedBy" />
+          <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+          <ScalarProperty Name="WIPDate" ColumnName="WIPDate" />
+          <ScalarProperty Name="PausedDate" ColumnName="PausedDate" />
+          <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+          <ScalarProperty Name="NotAnIssueDate" ColumnName="NotAnIssueDate" />
+          <ScalarProperty Name="DataRowVersion" ColumnName="DataRowVersion" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ChangeSetNumber" ColumnName="ChangeSetNumber" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="SectionGroupID" ColumnName="SectionGroupID" />
+          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="ClosedByID" ColumnName="ClosedByID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GenSuggestReportComments">
+      <EntityTypeMapping TypeName="IDBOLiveModel.GenSuggestReportComment">
+        <MappingFragment StoreEntitySet="GenSuggestReportComment">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+          <ScalarProperty Name="SuggestReportID" ColumnName="SuggestReportID" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ChangeSetNumber" ColumnName="ChangeSetNumber" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GenUserGroups">
+      <EntityTypeMapping TypeName="IDBOLiveModel.GenUserGroup">
+        <MappingFragment StoreEntitySet="GenUserGroup">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+          <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="DataRowVersion" ColumnName="DataRowVersion" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ChangeSetNumber" ColumnName="ChangeSetNumber" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GenUserSessionDetails">
+      <EntityTypeMapping TypeName="IDBOLiveModel.GenUserSessionDetail">
+        <MappingFragment StoreEntitySet="GenUserSessionDetails">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="IPV4Address" ColumnName="IPV4Address" />
+          <ScalarProperty Name="IPV6Address" ColumnName="IPV6Address" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+          <ScalarProperty Name="ADUsername" ColumnName="ADUsername" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ChangeSetNumber" ColumnName="ChangeSetNumber" />
+          <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+          <ScalarProperty Name="Tmp_ApplicationType" ColumnName="Tmp_ApplicationType" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IDBOLiveModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="GenSuggestReport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentID" Type="uniqueidentifier" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SlNo" Type="int" Nullable="false" />
+          <Property Name="Notes" Type="varchar(max)" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="RecordType" Type="int" Nullable="false" />
+          <Property Name="RecordStatus" Type="int" Nullable="false" />
+          <Property Name="ReviewedBy" Type="uniqueidentifier" />
+          <Property Name="SectionName" Type="varchar" MaxLength="50" />
+          <Property Name="WIPDate" Type="datetime" />
+          <Property Name="PausedDate" Type="datetime" />
+          <Property Name="ClosedDate" Type="datetime" />
+          <Property Name="NotAnIssueDate" Type="datetime" />
+          <Property Name="DataRowVersion" Type="int" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" />
+          <Property Name="ChangeSetNumber" Type="bigint" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="SectionGroupID" Type="uniqueidentifier" />
+          <Property Name="SectionID" Type="uniqueidentifier" />
+          <Property Name="CID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClosedByID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="GenSuggestReportComment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SlNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SuggestReportID" Type="uniqueidentifier" />
+          <Property Name="Comments" Type="varchar(max)" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" />
+          <Property Name="ChangeSetNumber" Type="bigint" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GenUserGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SlNo" Type="int" />
+          <Property Name="AppUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GroupID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DataRowVersion" Type="int" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+          <Property Name="ChangeSetNumber" Type="bigint" />
+          <Property Name="UserID" Type="uniqueidentifier" />
+          <Property Name="CID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GenUserSessionDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AppUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="IPV4Address" Type="varchar" MaxLength="50" />
+          <Property Name="IPV6Address" Type="varchar" MaxLength="50" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="int" />
+          <Property Name="MachineName" Type="varchar" MaxLength="255" />
+          <Property Name="ADUsername" Type="varchar" MaxLength="45" />
+          <Property Name="UserID" Type="uniqueidentifier" />
+          <Property Name="ChangeSetNumber" Type="bigint" />
+          <Property Name="ApplicationType" Type="int" />
+          <Property Name="Tmp_ApplicationType" Type="int" />
+          <Property Name="CID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="IDBOLiveModelStoreContainer">
+          <EntitySet Name="GenSuggestReport" EntityType="Self.GenSuggestReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GenSuggestReportComment" EntityType="Self.GenSuggestReportComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GenUserGroup" EntityType="Self.GenUserGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GenUserSessionDetails" EntityType="Self.GenUserSessionDetails" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IDBOLiveModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="GenSuggestReport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ParentID" Type="Guid" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="SlNo" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RecordType" Type="Int32" Nullable="false" />
+          <Property Name="RecordStatus" Type="Int32" Nullable="false" />
+          <Property Name="ReviewedBy" Type="Guid" />
+          <Property Name="SectionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WIPDate" Type="DateTime" Precision="3" />
+          <Property Name="PausedDate" Type="DateTime" Precision="3" />
+          <Property Name="ClosedDate" Type="DateTime" Precision="3" />
+          <Property Name="NotAnIssueDate" Type="DateTime" Precision="3" />
+          <Property Name="DataRowVersion" Type="Int32" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserID" Type="Guid" />
+          <Property Name="ChangeSetNumber" Type="Int64" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="SectionGroupID" Type="Guid" />
+          <Property Name="SectionID" Type="Guid" />
+          <Property Name="CID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClosedByID" Type="Guid" />
+        </EntityType>
+        <EntityType Name="GenSuggestReportComment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="SlNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SuggestReportID" Type="Guid" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserID" Type="Guid" />
+          <Property Name="ChangeSetNumber" Type="Int64" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GenUserGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="SlNo" Type="Int32" />
+          <Property Name="AppUserID" Type="Guid" Nullable="false" />
+          <Property Name="GroupID" Type="Guid" Nullable="false" />
+          <Property Name="DataRowVersion" Type="Int32" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+          <Property Name="ChangeSetNumber" Type="Int64" />
+          <Property Name="UserID" Type="Guid" />
+          <Property Name="CID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="GenUserSessionDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="AppUserID" Type="Guid" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="IPV4Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IPV6Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Int32" />
+          <Property Name="MachineName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ADUsername" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Guid" />
+          <Property Name="ChangeSetNumber" Type="Int64" />
+          <Property Name="ApplicationType" Type="Int32" />
+          <Property Name="Tmp_ApplicationType" Type="Int32" />
+          <Property Name="CID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityContainer Name="IDBOLiveEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GenSuggestReports" EntityType="Self.GenSuggestReport" />
+          <EntitySet Name="GenSuggestReportComments" EntityType="Self.GenSuggestReportComment" />
+          <EntitySet Name="GenUserGroups" EntityType="Self.GenUserGroup" />
+          <EntitySet Name="GenUserSessionDetails" EntityType="Self.GenUserSessionDetail" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IDBOLiveModelStoreContainer" CdmEntityContainer="IDBOLiveEntities">
+          <EntitySetMapping Name="GenSuggestReports">
+            <EntityTypeMapping TypeName="IDBOLiveModel.GenSuggestReport">
+              <MappingFragment StoreEntitySet="GenSuggestReport">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RecordType" ColumnName="RecordType" />
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+                <ScalarProperty Name="ReviewedBy" ColumnName="ReviewedBy" />
+                <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+                <ScalarProperty Name="WIPDate" ColumnName="WIPDate" />
+                <ScalarProperty Name="PausedDate" ColumnName="PausedDate" />
+                <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+                <ScalarProperty Name="NotAnIssueDate" ColumnName="NotAnIssueDate" />
+                <ScalarProperty Name="DataRowVersion" ColumnName="DataRowVersion" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ChangeSetNumber" ColumnName="ChangeSetNumber" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="SectionGroupID" ColumnName="SectionGroupID" />
+                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="ClosedByID" ColumnName="ClosedByID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GenSuggestReportComments">
+            <EntityTypeMapping TypeName="IDBOLiveModel.GenSuggestReportComment">
+              <MappingFragment StoreEntitySet="GenSuggestReportComment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+                <ScalarProperty Name="SuggestReportID" ColumnName="SuggestReportID" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ChangeSetNumber" ColumnName="ChangeSetNumber" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GenUserGroups">
+            <EntityTypeMapping TypeName="IDBOLiveModel.GenUserGroup">
+              <MappingFragment StoreEntitySet="GenUserGroup">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SlNo" ColumnName="SlNo" />
+                <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="DataRowVersion" ColumnName="DataRowVersion" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ChangeSetNumber" ColumnName="ChangeSetNumber" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GenUserSessionDetails">
+            <EntityTypeMapping TypeName="IDBOLiveModel.GenUserSessionDetail">
+              <MappingFragment StoreEntitySet="GenUserSessionDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="IPV4Address" ColumnName="IPV4Address" />
+                <ScalarProperty Name="IPV6Address" ColumnName="IPV6Address" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="ADUsername" ColumnName="ADUsername" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ChangeSetNumber" ColumnName="ChangeSetNumber" />
+                <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+                <ScalarProperty Name="Tmp_ApplicationType" ColumnName="Tmp_ApplicationType" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

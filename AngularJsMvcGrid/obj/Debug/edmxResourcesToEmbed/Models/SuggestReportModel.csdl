@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IDBOLiveModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="GenSuggestReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="ParentID" Type="Guid" />
+    <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+    <Property Name="SlNo" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RecordType" Type="Int32" Nullable="false" />
+    <Property Name="RecordStatus" Type="Int32" Nullable="false" />
+    <Property Name="ReviewedBy" Type="Guid" />
+    <Property Name="SectionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WIPDate" Type="DateTime" Precision="3" />
+    <Property Name="PausedDate" Type="DateTime" Precision="3" />
+    <Property Name="ClosedDate" Type="DateTime" Precision="3" />
+    <Property Name="NotAnIssueDate" Type="DateTime" Precision="3" />
+    <Property Name="DataRowVersion" Type="Int32" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserID" Type="Guid" />
+    <Property Name="ChangeSetNumber" Type="Int64" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="SectionGroupID" Type="Guid" />
+    <Property Name="SectionID" Type="Guid" />
+    <Property Name="CID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClosedByID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="GenSuggestReportComment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="SlNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SuggestReportID" Type="Guid" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserID" Type="Guid" />
+    <Property Name="ChangeSetNumber" Type="Int64" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GenUserGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="SlNo" Type="Int32" />
+    <Property Name="AppUserID" Type="Guid" Nullable="false" />
+    <Property Name="GroupID" Type="Guid" Nullable="false" />
+    <Property Name="DataRowVersion" Type="Int32" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="ChangeSetNumber" Type="Int64" />
+    <Property Name="UserID" Type="Guid" />
+    <Property Name="CID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="GenUserSessionDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="AppUserID" Type="Guid" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="IPV4Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IPV6Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="MachineName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ADUsername" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="UserID" Type="Guid" />
+    <Property Name="ChangeSetNumber" Type="Int64" />
+    <Property Name="ApplicationType" Type="Int32" />
+    <Property Name="Tmp_ApplicationType" Type="Int32" />
+    <Property Name="CID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityContainer Name="IDBOLiveEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="GenSuggestReports" EntityType="Self.GenSuggestReport" />
+    <EntitySet Name="GenSuggestReportComments" EntityType="Self.GenSuggestReportComment" />
+    <EntitySet Name="GenUserGroups" EntityType="Self.GenUserGroup" />
+    <EntitySet Name="GenUserSessionDetails" EntityType="Self.GenUserSessionDetail" />
+  </EntityContainer>
+</Schema>

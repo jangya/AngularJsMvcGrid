@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IDBOLiveModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="GenSuggestReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ParentID" Type="uniqueidentifier" />
+    <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SlNo" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="varchar(max)" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="RecordType" Type="int" Nullable="false" />
+    <Property Name="RecordStatus" Type="int" Nullable="false" />
+    <Property Name="ReviewedBy" Type="uniqueidentifier" />
+    <Property Name="SectionName" Type="varchar" MaxLength="50" />
+    <Property Name="WIPDate" Type="datetime" />
+    <Property Name="PausedDate" Type="datetime" />
+    <Property Name="ClosedDate" Type="datetime" />
+    <Property Name="NotAnIssueDate" Type="datetime" />
+    <Property Name="DataRowVersion" Type="int" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+    <Property Name="UserID" Type="uniqueidentifier" />
+    <Property Name="ChangeSetNumber" Type="bigint" />
+    <Property Name="IsActive" Type="int" Nullable="false" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="SectionGroupID" Type="uniqueidentifier" />
+    <Property Name="SectionID" Type="uniqueidentifier" />
+    <Property Name="CID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClosedByID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="GenSuggestReportComment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SlNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SuggestReportID" Type="uniqueidentifier" />
+    <Property Name="Comments" Type="varchar(max)" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="UserID" Type="uniqueidentifier" />
+    <Property Name="ChangeSetNumber" Type="bigint" />
+    <Property Name="IsActive" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GenUserGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SlNo" Type="int" />
+    <Property Name="AppUserID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="GroupID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DataRowVersion" Type="int" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="int" Nullable="false" />
+    <Property Name="ChangeSetNumber" Type="bigint" />
+    <Property Name="UserID" Type="uniqueidentifier" />
+    <Property Name="CID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GenUserSessionDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="StartTime" Type="datetime" />
+    <Property Name="EndTime" Type="datetime" />
+    <Property Name="IPV4Address" Type="varchar" MaxLength="50" />
+    <Property Name="IPV6Address" Type="varchar" MaxLength="50" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="MachineName" Type="varchar" MaxLength="255" />
+    <Property Name="ADUsername" Type="varchar" MaxLength="45" />
+    <Property Name="UserID" Type="uniqueidentifier" />
+    <Property Name="ChangeSetNumber" Type="bigint" />
+    <Property Name="ApplicationType" Type="int" />
+    <Property Name="Tmp_ApplicationType" Type="int" />
+    <Property Name="CID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="IDBOLiveModelStoreContainer">
+    <EntitySet Name="GenSuggestReport" EntityType="Self.GenSuggestReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GenSuggestReportComment" EntityType="Self.GenSuggestReportComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GenUserGroup" EntityType="Self.GenUserGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GenUserSessionDetails" EntityType="Self.GenUserSessionDetails" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
